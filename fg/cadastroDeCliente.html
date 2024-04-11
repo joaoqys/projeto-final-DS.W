@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cliente</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            color: rgb(145, 213, 209);
+            background-color: rgb(82, 82, 82);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        .link {
+            color: rgb(145, 213, 209);
+        }
+
+        .link:hover {
+            color: #c4c3ca;
+        }
+
+        p {
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        h2 {
+            font-weight: 600;
+        }
+
+        .center-wrap {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-wrap">
+        <h2>Cadastro de Cliente</h2>
+        <form id="cadastroClienteForm" action="cadastro_cliente.php" method="post" onsubmit="return validarForm()">
+            <div class="form-group">
+                <label for="nome">Nome do cliente:</label>
+                <input type="text" id="nome" name="nome" required>
+                <span id="nomeError" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="sobrenome">Sobrenome do cliente:</label>
+                <input type="text" id="sobrenome" name="sobrenome" required>
+                <span id="sobrenomeError" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço do cliente:</label>
+                <input type="text" id="endereco" name="endereco" required>
+                <span id="enderecoError" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone do cliente:</label>
+                <input type="text" id="telefone" name="telefone" required>
+                <span id="telefoneError" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="cpf">CPF do cliente:</label>
+                <input type="text" id="cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+                <span id="cpfError" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="cnpj">CNPJ do cliente:</label>
+                <input type="text" id="cnpj" name="cnpj" required pattern="\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}">
+                <span id="cnpjError" class="error"></span>
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+
+
+    <script>
+        function validarForm() {
+            var nome = document.getElementById("nome").value.trim();
+            var sobrenome = document.getElementById("sobrenome").value.trim();
+            var endereco = document.getElementById("endereco").value.trim();
+            var telefone = document.getElementById("telefone").value.trim();
+            var cpf = document.getElementById("cpf").value.trim();
+            var cnpj = document.getElementById("cnpj").value.trim();
+            var isValid = true;
+
+            function validarCPF(cpf) {
+                var cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+                return cpfRegex.test(cpf);
+            }
+
+            function validarCNPJ(cnpj) {
+                var cnpjRegex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
+                return cnpjRegex.test(cnpj);
+            }
+
+
+            if (!validarCPF(cpf)) {
+                document.getElementById("cpfError").textContent = "Por favor, insira um CPF válido.";
+                isValid = false;
+            } else {
+                document.getElementById("cpfError").textContent = "";
+            }
+
+            if (!validarCNPJ(cnpj)) {
+                document.getElementById("cnpjError").textContent = "Por favor, insira um CNPJ válido.";
+                isValid = false;
+            } else {
+                document.getElementById("cnpjError").textContent = "";
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>
+</body>
+</html>
