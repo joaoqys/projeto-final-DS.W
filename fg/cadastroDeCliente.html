@@ -22,33 +22,33 @@
                                         <h2 class="mb-4 pb-3">Cadastro de Cliente</h2>
                                         <form id="cadastroClienteForm" action="cadastro_cliente.php" method="post" onsubmit="return validarForm()">
                                             <div class="form-group">
-                                                <label for="nome">Nome do cliente:</label>
-                                                <input type="text" class="form-style" id="nome" name="nome" required>
+                                                <label for="nome"></label>
+                                                <input type="text" class="form-style" id="nome" name="nome" required placeholder="Nome do cliente"> 
                                                 <span id="nomeError" class="error"></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="sobrenome">Sobrenome do cliente:</label>
-                                                <input type="text" class="form-style" id="sobrenome" name="sobrenome" required>
+                                                <label for="sobrenome"></label>
+                                                <input type="text" class="form-style" id="sobrenome" name="sobrenome" required placeholder="Sobrenome do cliente">
                                                 <span id="sobrenomeError" class="error"></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="endereco">Endereço do cliente:</label>
-                                                <input type="text" class="form-style" id="endereco" name="endereco" required>
+                                                <label for="endereco"></label>
+                                                <input type="text" class="form-style" id="endereco" name="endereco" required placeholder="Endereço do cliente">
                                                 <span id="enderecoError" class="error"></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="telefone">Telefone do cliente:</label>
-                                                <input type="text" class="form-style" id="telefone" name="telefone" required>
+                                                <label for="telefone"></label>
+                                                <input type="text" class="form-style" id="telefone" name="telefone" required placeholder="Telefone do cliente">
                                                 <span id="telefoneError" class="error"></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="cpf">CPF do cliente:</label>
-                                                <input type="text" class="form-style" id="cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+                                                <label for="cpf"></label>
+                                                <input type="text" class="form-style" id="cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="CPF do cliente">
                                                 <span id="cpfError" class="error"></span>
                                             </div>
                                             <div class="form-group">
-                                                <label for="cnpj">CNPJ do cliente:</label>
-                                                <input type="text" class="form-style" id="cnpj" name="cnpj" required pattern="\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}">
+                                                <label for="cnpj"></label>
+                                                <input type="text" class="form-style" id="cnpj" name="cnpj" required pattern="\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}" placeholder="CNPJ do cliente">
                                                 <span id="cnpjError" class="error"></span>
                                             </div>
                                             <button type="submit" class="btn mt-4">Cadastrar</button>
