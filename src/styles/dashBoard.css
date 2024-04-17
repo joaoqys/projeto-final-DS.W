@@ -5,16 +5,52 @@
 }
 
 .Bar{
-    width: 30%;
+    width: 20%;
+    background-color: #216ce7;
+    font-size: 20px;
 }
 
+ul{
+    width: 80%;
+}
+
+h4 {
+    font-size: 2vw; /* Tamanho base, 5% da largura da viewport */
+    color: white;
+    padding: 10px;
+    gap: 10px;
+    box-shadow: 0 100px 100px rgb(0 0 0 / 10%);
+}
+
+@media screen and (max-width: 768px) {
+    h4 {
+        font-size: 2vw; /* Altera o tamanho para 7% da largura da viewport quando a largura da tela for menor que 768px */
+    }
+}
+
+h4:hover{
+    background-color: blue;
+}
 .Data{
-    width: 70%;
+    width: 75%;
+    padding: 50px;
+}
+
+ul{
+    list-style: none;
 }
 
 header{
-    background-color: black;
+    display: flex;
+    background-color: blue;
     width: 100%;
     color: white;
-    padding: 20px;
+}
+
+h1{
+    padding: 25px;
+}
+
+.headerElements{
+    padding: 15px;
 }
