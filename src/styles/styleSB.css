@@ -171,5 +171,8 @@ main {
     color: #216ce7;
 }
 
-
-  
+.main{
+    margin: 5px;
+    width: 70%;
+    height: auto;
+}
