@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login Painel</title>
+	<link rel="shortcut icon" href="/src/assets/logo.png" type="image/x-icon" />
+	<link rel="stylesheet" href="/src/styles/.css">
+</head>
+
+<body>
+	<div class="background"></div>
+	<div class="card">
+		<img class="logo" src="/src/assets/logo.png">
+		<h4>Login Painel</h4>
+        <form class="form" action="/projeto-final-DS.W/src/pages/DashBoard/index.html" method="GET">
+            <input type="email" placeholder="Digite seu email" required>
+            <input type="password" placeholder="Digite sua senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+	</div>
+
+	<script src="/projeto-final-DS.W/src/js/Login.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"> </script>
+	<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth	-compat.js"> </script>
+	<script>
+		const firebaseConfig = {
+			apiKey: "AIzaSyBwnORay4dUSGdZaiFq1hTC7h1NP7Lfpq4",
+			authDomain: "projeto-final-71464.firebaseapp.com",
+			projectId: "projeto-final-71464",
+			storageBucket: "projeto-final-71464.appspot.com",
+			messagingSenderId: "323535295292",
+			appId: "1:323535295292:web:4107299a6bdddee391c439",
+			measurementId: "G-0GHWV2T6ZF"
+		};
+		firebase.initializeApp(firebaseConfig);
+
+		console.log	('antes');
+		firebase.auth().signInWithEmailAndPassword("teste@gmail.com", "123456", "vini.asf19@gmail.com", "12345678").then(response => {
+			console.log	('sucesso', response);
+		}).catch(error => {
+			console.log	('erro', error);
+		});
+		console.log	('depois');
+
+	</script>
+</body>
+
+</html>
