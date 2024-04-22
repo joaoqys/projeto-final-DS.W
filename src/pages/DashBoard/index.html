@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,127 +13,133 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
+
 <body>
+    <nav id="sidebar">
+        <div id="sidebar_content">
+            <div id="user">
+                <img src="../../assets/logo.png" id="user_avatar" alt="Avatar">
 
-  <nav id="sidebar">
-    <div id="sidebar_content">
-        <div id="user">
-            <img src="../../assets/logo.png" id="user_avatar" alt="Avatar">
+                <p id="user_infos">
+                    <span class="item-description">
+                        Menu
+                    </span>
+                    <span class="item-description">
+                        Controle de Licença
+                    </span>
+                </p>
+            </div>
 
-            <p id="user_infos">
-                <span class="item-description">
-                    Menu
-                </span>
-                <span class="item-description">
-                    Controle de Licença
-                </span>
-            </p>
+            <ul id="side_items">
+                <li class="side-item active">
+                    <a href="../DashBoard/index.html">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span class="item-description">
+                            Dashboard
+                        </span>
+                    </a>
+                </li>
+
+                <li class="side-item">
+                    <a href="#">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="item-description">
+                            Usuários
+                        </span>
+                    </a>
+                </li>
+
+                <li class="side-item">
+                    <a href="../RegisterUsers/index.html">
+                        <i class="fa-solid fa-box"></i>
+                        <span class="item-description">
+                            Cadastrar Usuário
+                        </span>
+                    </a>
+                </li>
+
+                <li class="side-item">
+                    <a href="../RegisterClient/">
+                        <i class="fa-solid fa-address-book"></i>
+                        <span class="item-description">
+                            Cadastrar Cliente
+                        </span>
+                    </a>
+                </li>
+
+                <li class="side-item">
+                    <a href="#">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="item-description">
+                            Notificações
+                        </span>
+                    </a>
+                </li>
+
+                <li class="side-item">
+                    <a href="#">
+                        <i class="fa-solid fa-gear"></i>
+                        <span class="item-description">
+                            Configurações
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <button id="open_btn">
+                <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
+            </button>
         </div>
 
-        <ul id="side_items">
-            <li class="side-item active">
-                <a href="#">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <span class="item-description">
-                        Dashboard
-                    </span>
-                </a>
-            </li>
 
-            <li class="side-item">
-                <a href="#">
-                    <i class="fa-solid fa-user"></i>
-                    <span class="item-description">
-                        Usuários
-                    </span>
-                </a>
-            </li>
-
-            <li class="side-item">
-                <a href="../RegisterUsers/index.html">
-                    <i class="fa-solid fa-box"></i>
-                    <span class="item-description">
-                        Cadastrar Usuário
-                    </span>
-                </a>
-            </li>
-
-            <li class="side-item">
-                <a href="../RegisterClient/">
-                    <i class="fa-solid fa-address-book"></i>
-                    <span class="item-description">
-                        Cadastrar Cliente
-                    </span>
-                </a>
-            </li>
-
-            <li class="side-item">
-                <a href="#">
-                    <i class="fa-solid fa-bell"></i>
-                    <span class="item-description">
-                        Notificações
-                    </span>
-                </a>
-            </li>
-
-            <li class="side-item">
-                <a href="#">
-                    <i class="fa-solid fa-gear"></i>
-                    <span class="item-description">
-                        Configurações
-                    </span>
-                </a>
-            </li>
-        </ul>
-
-        <button id="open_btn">
-            <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-
-
-    <div id="logout">
-        <button id="logout_btn">
-            <i class="fa-solid fa-right-from-bracket"></i>
-            <span class="item-description">
-                Logout
-            </span>
-        </button>
-    </div>
-  </nav>
-
-  <main>
-    <h1 class="title-main"><strong>DashBoard</strong></h1>
-  </main>
+        <div id="logout">
+            <button id="logout_btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class="item-description">
+                    Logout
+                </span>
+            </button>
+        </div>
+    </nav>
 
   <div class="container">  
     <div class="main">
       </br>
       <div class="dashBoard">
         <canvas id="myChart"></canvas>
-        <table class="table table-dark table-striped">
+        <table class="table table-striped">
               <thead>
                 <tr>
                   <th scope="col">Cidade</th>
                   <th scope="col">Nº Clientes</th>
+                  <th scope="col">Ramo 1</th>
+                  <th scope="col">Ramo 2</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">Rio de janeiro</th>
                   <td id="RJ"></td>
+                  <td id="RJ_Ramo1">49</td>
+                  <td id="RJ_Ramo2">51</td>
                 </tr>
                 <tr>
                   <th scope="row">São Paulo</th>
                   <td id="SP"></td>
+                  <td id="SP_Ramo1">150</td>
+                  <td id="SP_Ramo2">50</td>
                 </tr>
                 <tr>
                   <th scope="row">Aracaju</th>
                   <td id="AR"></td>
+                  <td id="AR_Ramo1">77</td>
+                  <td id="AR_Ramo2">73</td>
                 </tr>
                 <tr>
                   <th scope="row">Iguaçu</th>
                   <td id="IG"></td>
+                  <td id="IG_Ramo1">131</td>
+                  <td id="IG_Ramo2">169</td>
                 </tr>
               </tbody>
         </table>
