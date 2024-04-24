@@ -9,6 +9,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../styles/styleSB.css">
     <link rel="stylesheet" href="../../styles/styleRC.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <title>Sidebar</title>
 </head>
 
@@ -103,7 +105,7 @@
 
     <div class="container">
         <div class="detalheBack">
-            <form class="form">
+            <form class="form" method="post">
                 <h4>Cadastro De Cliente</h4>
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome" required>
@@ -118,16 +120,15 @@
                 <label for="email">E-mail</label>
                 <input type="email" id="email" name="email" required>
                 <label for="nome">Senha</label>
-                <input type="password" id="Senha" name="Senha" required>
-                <button type="submit">Registrar</button>
+                <input type="password" id="senha" name="Senha" required>
+                <button type="button" onclick="registrar()">Registrar</button>
             </form>
         </div>
         <div class="divImg">
             <img src="../../assets/Cartoon  CC2.png" width="300px" height="300px">
         </div>
     </div>
-
-
+    
     <script src="../../js/scriptSB.js"></script>
 </body>
 
