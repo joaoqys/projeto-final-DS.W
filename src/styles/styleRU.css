@@ -170,3 +170,93 @@ main {
     font-size: 22px;
     color: #216ce7;
 }
+
+.container{
+    display: flex;
+    margin-top: 5%;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+  }
+
+  .form {
+    position: relative; 
+    display: grid;
+    background-color: #f9f9f9; 
+    padding: 20px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+    z-index: 1; 
+  }
+  
+  .form::before {
+    content: ''; 
+    position: absolute;
+    top: 0; 
+    left: 25%;
+    width: 50%; 
+    height: 3px; 
+    background-color: #1900ff; 
+    z-index: 2; 
+  }
+
+  .form label{
+    margin-top: 10%;
+    font-size: 15px;
+  }
+
+  .form h4{
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .detalheBack {
+
+  }
+
+  .form input {
+    width: 250px; 
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 1%;
+    margin: auto;
+    border: 1px solid #6e6e6e;
+    border-radius: 3px;
+  }
+
+  .form button{
+    background-color: blue;
+    color: white;
+    border: white;
+    margin-top: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 3%;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .form button:hover{
+    background-color: #1b89ff;
+  }
+
+  .divImg{
+    display: flex;
+    margin-left: 20%;
+  }
+  
+  .checkboxPJ {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.labelCheckbox {
+    margin-right: 10px;
+}
+
+.inputPJ {
+    width: auto; /* Define a largura do input automaticamente */
+}
+
