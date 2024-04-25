@@ -105,48 +105,65 @@
         <h1 class="title-main">DashBoard</h1>
     </main>
 
-
-
-
   <div class="containerDash">  
       <div class="dashBoard">
         <canvas id="myChart" ></canvas>
-        <table>
-              <thead>
+        <div class="tableDiv">
+            <table>
+                <thead>
+                    <tr>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Nº Clientes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">Rio de janeiro</th>
+                    <td id="RJ"></td>
+                    </tr>
+                    <tr>
+                    <th scope="row">São Paulo</th>
+                    <td id="SP"></td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Aracaju</th>
+                    <td id="AR"></td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Iguaçu</th>
+                    <td id="IG"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
                 <tr>
-                  <th scope="col">Cidade</th>
-                  <th scope="col">Nº Clientes</th>
-                  <th scope="col">Ramo 1</th>
-                  <th scope="col">Ramo 2</th>
+                    <th scope="col">Ramo</th>
+                    <th scope="col">Nº Clientes</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr>
-                  <th scope="row">Rio de janeiro</th>
-                  <td id="RJ"></td>
-                  <td id="RJ_Ramo1">49</td>
-                  <td id="RJ_Ramo2">51</td>
+                    <th scope="row">Farmacia</th>
+                    <td id="Farm">120</td>
                 </tr>
                 <tr>
-                  <th scope="row">São Paulo</th>
-                  <td id="SP"></td>
-                  <td id="SP_Ramo1">150</td>
-                  <td id="SP_Ramo2">50</td>
+                    <th scope="row">Metalugica</th>
+                    <td id="metal">345</td>
                 </tr>
                 <tr>
-                  <th scope="row">Aracaju</th>
-                  <td id="AR"></td>
-                  <td id="AR_Ramo1">77</td>
-                  <td id="AR_Ramo2">73</td>
+                    <th scope="row">Computação</th>
+                    <td id="comp">234</td>
                 </tr>
                 <tr>
-                  <th scope="row">Iguaçu</th>
-                  <td id="IG"></td>
-                  <td id="IG_Ramo1">131</td>
-                  <td id="IG_Ramo2">169</td>
+                    <th scope="row">Musica</th>
+                    <td id="music">579</td>
                 </tr>
-              </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
+            
       </div>
 
   </div>

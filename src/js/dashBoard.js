@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     var ctx = document.getElementById('myChart').getContext('2d');
 
-    var initialData = [100, 200, 150, 300];
+    var initialData = [143, 200, 150, 300];
 
-    var customColors = ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'];
+    var customColors = ['rgba(255, 18, 30, 0.8)', 'rgba(25, 98, 249, 0.8)', 'rgba(240, 242, 42, 0.8)', 'rgba(49, 248, 85, 0.8)', 'rgba(153, 102, 255, 0.2)'];
 
     var myChart = new Chart(ctx, {
         type: 'bar',

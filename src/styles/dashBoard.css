@@ -176,6 +176,11 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    padding: 20px;
+    border-radius: 5%;
 }
 
 .dashBoard{
@@ -187,6 +192,7 @@ main {
     background-color: white;
     width: 700px;
     height: auto;
+    margin: 5px;
     border-collapse: collapse; /* Mescla as bordas das células, tornando-as parecerem uma única borda */
     border: 1px solid black;
 }
@@ -195,10 +201,28 @@ main {
     background-color: gray;
 }
 
-.dashBoard th, td {
+.tableDiv th, td {
     border: 1px solid black; /* Adiciona uma borda às células da tabela com uma largura de 1 pixel */
     padding: 8px; /* Adiciona um preenchimento interno às células */
     text-align: center;
+}
+
+.dashBoard .tableDiv{
+    width: 100%;
+}
+
+.tableDiv{
+   display: flex;
+   margin-right: 20px;
+}
+
+.tableDiv table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tableDiv th, td{
+    padding: 8;
 }
 
 <<<<<<< HEAD
