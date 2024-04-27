@@ -76,3 +76,9 @@
     display: flex;
     margin-left: 20%;
   }
+
+  .error-message {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+}
