@@ -1,47 +1,46 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var ctx = document.getElementById('myChart').getContext('2d');
+const firebaseConfig = {
+    apiKey: "AIzaSyBDY6PdMsccR6n-0NaVXewiFionauoqwgs",
+    authDomain: "autentica-19671.firebaseapp.com",
+    projectId: "autentica-19671",
+    storageBucket: "autentica-19671.appspot.com",
+    messagingSenderId: "315303510549",
+    appId: "1:315303510549:web:14559a91963607723e841c"
+};
 
-    var initialData = [143, 200, 150, 300];
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
 
-    var customColors = ['rgba(255, 18, 30, 0.8)', 'rgba(25, 98, 249, 0.8)', 'rgba(240, 242, 42, 0.8)', 'rgba(49, 248, 85, 0.8)', 'rgba(153, 102, 255, 0.2)'];
+function getCepsClientes() {
+    return database.ref('clientes').once('value').then(snapshot => snapshot.val());
+}
 
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Rio de Janeiro', 'São paulo', 'Aracaju', 'Iguaçu'],
-            datasets: [{
-                label: 'Nº Clientes',
-                data: initialData,
-                backgroundColor: customColors,
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
+function contarClientesPorEstado(ceps) {
+    const estados = {};
+    ceps.forEach(cep => {
+        const estado = cep.substring(0, 2);
+        if (estados[estado]) {
+            estados[estado]++;
+        } else {
+            estados[estado] = 1;
         }
     });
+    return estados;
+}
 
-    var RJ = document.getElementById('RJ');
-    var SP = document.getElementById('SP');
-    var AR = document.getElementById('AR');
-    var IG = document.getElementById('IG');
+function atualizarTabela() {
+    getCepsClientes().then(clientes => {
+        const ceps = Object.values(clientes).map(cliente => cliente.cep);
+        const estados = contarClientesPorEstado(ceps);
+        const tbody = document.querySelector('#clientesPorEstado tbody');
+        tbody.innerHTML = '';
+        for (const estado in estados) {
+            const row = `<tr>
+                            <td>${estado}</td>
+                            <td>${estados[estado]}</td>
+                        </tr>`;
+            tbody.innerHTML += row;
+        }
+    }).catch(error => console.error('Erro ao buscar dados:', error));
+}
 
-    myChart.data.datasets.forEach(function(dataset) {
-        dataset.data.forEach(function(value, index) {
-            if (index === 0) {
-                RJ.innerText = value;
-            } else if (index === 1) {
-                SP.innerText = value;
-            } else if (index === 2) {
-                AR.innerHTML = value;
-            } else if (index === 3) {
-                IG.innerHTML = value;
-            }
-        });
-    });
-});
+window.onload = atualizarTabela;
