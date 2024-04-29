@@ -178,3 +178,44 @@ const clientes = [
   
   // Exibe os dados na tabela HTML e no gráfico de barras
   exibirDadosNaTabelaEGráfico(contagemPorEstado);
+
+  const clientesR = [
+    { nome: "Cliente 1", ramo: "Tecnologia" },
+    { nome: "Cliente 2", ramo: "Saúde" },
+    { nome: "Cliente 3", ramo: "Tecnologia" },
+    { nome: "Cliente 4", ramo: "Alimentício" },
+    { nome: "Cliente 5", ramo: "Saúde" },
+    { nome: "Cliente 6", ramo: "Tecnologia" },
+    // Adicione mais clientes conforme necessário
+  ];
+  
+  // Função para contar o número de clientes por ramo de trabalho
+  function contarClientesPorRamo(clientesR) {
+    const contagem = {};
+
+    clientesR.forEach(cliente => {
+      const ramo = cliente.ramo;
+      if (!contagem[ramo]) {
+        contagem[ramo] = 0;
+      }
+      contagem[ramo]++;
+    });
+  
+    return contagem;
+  }
+  
+  // Função para exibir os dados na tabela HTML
+  function exibirDadosNaTabela(contagem) {
+    const tabela = document.getElementById("tabelaClientesPorRamo");
+    for (const ramo in contagem) {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td>${ramo}</td><td>${contagem[ramo]}</td>`;
+      tabela.appendChild(row);
+    }
+  }
+  
+  // Conta o número de clientes por ramo de trabalho
+  const contagemPorRamo = contarClientesPorRamo(clientesR);
+  
+  // Exibe os dados na tabela HTML
+  exibirDadosNaTabela(contagemPorRamo);
