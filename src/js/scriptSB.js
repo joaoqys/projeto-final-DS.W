@@ -9,6 +9,8 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+const db = firebase.firestore();
+
 function registrar() {
 
     var nomeInput = document.getElementById("nome");
@@ -77,19 +79,19 @@ function registrar() {
 
 
 
-    firebase.auth().createUserWithEmailAndPassword(
-        document.getElementById("email").value,
-        document.getElementById("senha").value
-    )
-    .then(function (user) {
+    firebase.auth().createUserWithEmailAndPassword(emailValue, senhaValue)
+    .then(function (userCredential) {
+        return firebase.firestore().collection("clientes").doc(userCredential.user.uid).set({
+            nome: nomeValue,
+            cep: cepValue,
+            telefone: telefoneValue,
+            ramo: ramoValue,
+            email: emailValue
+        });
+    })
+    .then(function () {
         document.getElementById("mensagem").innerHTML = "Dados cadastrados com sucesso!";
-        document.getElementById("email").value = '';
-        document.getElementById("senha").value = '';
-        document.getElementById("nome").value = '';
-        document.getElementById("cep").value = '';
-        document.getElementById("telefone").value = '';
-        document.getElementById("cpf").value = '';
-        document.getElementById("ramo").value = '';
+        document.getElementById("cadastroForm").reset();
     })
     .catch(function(error) {
         document.getElementById("mensagem").innerHTML = "Erro ao cadastrar: " + error.message;
