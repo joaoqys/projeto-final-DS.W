@@ -10,7 +10,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../styles/dashBoard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <link rel="stylesheet" href="../../styles/styleSB.css">
 </head>
 
 <body>
@@ -109,7 +109,7 @@
       <div class="dashBoard">
         <canvas id="myChart" ></canvas>
         <div class="tableDiv">
-            <table>
+            <table id="clientesPorEstado">
                 <thead>
                     <tr>
                     <th scope="col">Cidade</th>
@@ -117,22 +117,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">Rio de janeiro</th>
-                    <td id="RJ"></td>
-                    </tr>
-                    <tr>
-                    <th scope="row">São Paulo</th>
-                    <td id="SP"></td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Aracaju</th>
-                    <td id="AR"></td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Iguaçu</th>
-                    <td id="IG"></td>
-                    </tr>
+                    
                 </tbody>
             </table>
 
@@ -168,7 +153,10 @@
 
   </div>
 
-  <script src="../../js/scriptSB.js"></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
   <script src="../../js/dashBoard.js"></script>
+    
 </body>
 </html>
