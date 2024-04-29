@@ -1,46 +1,180 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyBDY6PdMsccR6n-0NaVXewiFionauoqwgs",
-    authDomain: "autentica-19671.firebaseapp.com",
-    projectId: "autentica-19671",
-    storageBucket: "autentica-19671.appspot.com",
-    messagingSenderId: "315303510549",
-    appId: "1:315303510549:web:14559a91963607723e841c"
-};
-
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
-
-function getCepsClientes() {
-    return database.ref('clientes').once('value').then(snapshot => snapshot.val());
-}
-
-function contarClientesPorEstado(ceps) {
-    const estados = {};
-    ceps.forEach(cep => {
-        const estado = cep.substring(0, 2);
-        if (estados[estado]) {
-            estados[estado]++;
-        } else {
-            estados[estado] = 1;
-        }
+const clientes = [
+    { nome: "Cliente 1", cep: "12345-678" },
+    { nome: "Cliente 2", cep: "54321-987" },
+    { nome: "Cliente 3", cep: "54321-987" },
+    { nome: "Cliente 4", cep: "87654-321" },
+    { nome: "Cliente 5", cep: "12345-678" },
+    { nome: "Cliente 6", cep: "87654-321" },
+    // Adicione mais clientes conforme necessário
+  ];
+  
+  // Função para contar o número de cadastros por estado
+  function contarCadastrosPorEstado(clientes) {
+    const contagem = {
+      "SP": 0,
+      "RJ": 0,
+      "MG": 0,
+      "ES": 0,
+      "AC": 0,
+      "AL": 0,
+      "AM": 0,
+      "BA": 0,
+      "CE": 0,
+      "DF": 0,
+      "GO": 0,
+      "MA": 0,
+      "MT": 0,
+      "MS": 0,
+      "PA": 0,
+      "PB": 0,
+      "PR": 0,
+      "PE": 0,
+      "PI": 0,
+      "RN":0,
+      "RS":0,
+      "RO": 0,
+      "RR": 0,
+      "SC": 0,
+      "SE": 0,
+      "TO": 0
+      // Adicione mais estados conforme necessário
+    };
+  
+    clientes.forEach(cliente => {
+      const estado = determinarEstado(cliente.cep);
+      if (estado) {
+        contagem[estado]++;
+      }
     });
-    return estados;
-}
+  
+    return contagem;
+  }
+  
+  // Função para determinar o estado com base no CEP
+  function determinarEstado(cep) {
+    const codigoEstado = parseInt(cep.substring(0, 3)); // Extrai os três primeiros dígitos do CEP e converte para número inteiro
+  
+    if (codigoEstado >= 100 && codigoEstado <= 199) {
+      return "SP";
+    } else if (codigoEstado >= 200 && codigoEstado <= 289) {
+      return "RJ";
+    } else if (codigoEstado >= 290 && codigoEstado <= 299) {
+      return "ES";
+    } else if (codigoEstado >= 300 && codigoEstado <= 399) {
+      return "MG";
+    } else if( codigoEstado==699){
+      return "AC"
+    } else if( codigoEstado>= 570 && codigoEstado<= 579){
+      return "AL"
+    } else if( codigoEstado>= 694 && codigoEstado<= 698){
+      return "AM"
+    } else if( codigoEstado>= 400 && codigoEstado<= 489){
+      return "BA"
+    } else if( codigoEstado>= 600 && codigoEstado<= 639){
+      return "CE"
+    } else if( codigoEstado>= 700 && codigoEstado<= 736){
+      return "DF"
+    } else if( codigoEstado>= 728 && codigoEstado<= 767){
+      return "GO"
+    } else if( codigoEstado>= 650 && codigoEstado<= 659){
+      return "MA"
+    } else if( codigoEstado>= 780 && codigoEstado<= 788){
+      return "MT"
+    } else if( codigoEstado>= 790 && codigoEstado<= 799){
+      return "MS"
+    } else if( codigoEstado>= 660 && codigoEstado<= 688){
+      return "PA"
+    } else if( codigoEstado>= 580 && codigoEstado<= 589){
+      return "PB"
+    } else if( codigoEstado>= 800 && codigoEstado<= 879){
+      return "PR"
+    } else if( codigoEstado>= 500 && codigoEstado<= 569){
+      return "PE"
+    } else if( codigoEstado>= 640 && codigoEstado<= 649){
+      return "PI"
+    } else if( codigoEstado>= 590 && codigoEstado<= 599){
+      return "RN"
+    } else if( codigoEstado>= 900 && codigoEstado<= 999){
+      return "RS"
+    } else if( codigoEstado== 789){
+      return "RO"
+    } else if( codigoEstado== 693){
+      return "RR"
+    } else if( codigoEstado>= 880 && codigoEstado<= 899){
+      return "SC"
+    } else if( codigoEstado>= 490 && codigoEstado<= 499){
+      return "SE"
+    } else if( codigoEstado>= 770 && codigoEstado<= 779){
+      return "TO"
+    } else{
+      return "none"
+    }
+    // Adicione mais estados conforme necessário
+  
+    // Se o código não corresponder a nenhum estado conhecido, retorna null
+    return null;
+  }
+  
+  // Função para exibir os dados na tabela HTML e no gráfico de barras
+  function exibirDadosNaTabelaEGráfico(contagem) {
+    const tabela = document.getElementById("clientesPorEstado");
+    const ctx = document.getElementById("myChart").getContext("2d");
 
-function atualizarTabela() {
-    getCepsClientes().then(clientes => {
-        const ceps = Object.values(clientes).map(cliente => cliente.cep);
-        const estados = contarClientesPorEstado(ceps);
-        const tbody = document.querySelector('#clientesPorEstado tbody');
-        tbody.innerHTML = '';
-        for (const estado in estados) {
-            const row = `<tr>
-                            <td>${estado}</td>
-                            <td>${estados[estado]}</td>
-                        </tr>`;
-            tbody.innerHTML += row;
+    const estados = [];
+    const numCadastros = [];
+
+    for (const estado in contagem) {
+      if (contagem[estado] > 0) {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${estado}</td><td>${contagem[estado]}</td>`;
+        tabela.appendChild(row);
+
+        estados.push(estado);
+        numCadastros.push(contagem[estado]);
+      }
+    }
+
+    // Criando o gráfico de barras
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: estados,
+        datasets: [{
+          label: "Número de Cadastros por Estado",
+          data: numCadastros,
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.2)",
+            "rgba(54, 162, 235, 0.2)",
+            "rgba(255, 206, 86, 0.2)",
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(255, 159, 64, 0.2)"
+          ],
+          borderColor: [
+            "rgba(255, 99, 132, 1)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(255, 206, 86, 1)",
+            "rgba(75, 192, 192, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(255, 159, 64, 1)"
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
         }
-    }).catch(error => console.error('Erro ao buscar dados:', error));
-}
-
-window.onload = atualizarTabela;
+      }
+    });
+  }
+  
+  // Conta o número de cadastros por estado
+  const contagemPorEstado = contarCadastrosPorEstado(clientes);
+  
+  // Exibe os dados na tabela HTML e no gráfico de barras
+  exibirDadosNaTabelaEGráfico(contagemPorEstado);
