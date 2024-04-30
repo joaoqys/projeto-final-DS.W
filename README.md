@@ -1,4 +1,4 @@
-###Componentes:
+### Componentes:
 
 - Dashboard: Este componente exibe o painel de controle principal da aplicação.
 
@@ -11,7 +11,7 @@
 - SideBar: Este componente exibe a barra lateral da aplicação.
 
 
-###Funcionalidades:
+### Funcionalidades:
 
 - Formulário de login com validação.
 
