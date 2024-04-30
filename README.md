@@ -1,6 +1,6 @@
 ###Componentes:
 
-`Dashboard:` Este componente exibe o painel de controle principal da aplicação.
+- Dashboard: Este componente exibe o painel de controle principal da aplicação.
 
 - Login: Este componente exibe o formulário de login.
 
