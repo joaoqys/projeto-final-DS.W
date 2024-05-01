@@ -211,6 +211,24 @@ main {
     text-align: center;
 }
 
+.dashBoard .tableDiv{
+    width: 100%;
+}
+
+.tableDiv{
+   display: flex;
+   margin-right: 20px;
+}
+
+.tableDiv table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tableDiv th, td{
+    padding: 8;
+}
+
 <<<<<<< HEAD
 =======
 .dashBoard .tableDiv{

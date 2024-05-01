@@ -88,15 +88,16 @@
                 <h4>Cadastro De Usuário</h4>
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome" required>
-                <label for="nome">E-mail</label>
-                <input type="text" id="E-mail" name="E-mail" required>
-                <label for="nome">Permissão</label>
-                <input type="text" id="Permissão" name="Permissão" required>
-                <label for="nome">Senha</label>
-                <input type="password" id="Senha" name="Senha" required>
-                <label for="nome">Confirmar Senha</label>
-                <input type="password" id="ConfirmarSenha" name="ConfirmarSenha" required>
-                <button type="submit">Registrar</button>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+                <label for="permissao">Permissão</label>
+                <input type="text" id="permissao" name="permissao" required>
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" required>
+                <label for="confirmarSenha">Confirmar Senha</label>
+                <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+                <button type="button" onclick="registrar()">Registrar</button>
+                <div id="mensagem"></div>
             </form>
         </div>
         <div class="divImg">
@@ -117,6 +118,7 @@
             messagingSenderId: "315303510549",
             appId: "1:315303510549:web:14559a91963607723e841c"
         };
+<<<<<<< HEAD
 
         firebase.initializeApp(firebaseConfig);
 
@@ -169,4 +171,59 @@
         });
     </script>
 </body>
+=======
+
+        firebase.initializeApp(firebaseConfig);
+
+        const db = firebase.firestore();
+
+        function registrar() {
+            var nomeInput = document.getElementById("nome");
+            var nomeValue = nomeInput.value.trim();
+
+            var emailInput = document.getElementById("email");
+            var emailValue = emailInput.value.trim();
+
+            var permissaoInput = document.getElementById("permissao");
+            var permissaoValue = permissaoInput.value.trim();
+
+            var senhaInput = document.getElementById("senha");
+            var senhaValue = senhaInput.value.trim();
+
+            var confirmarSenhaInput = document.getElementById("confirmarSenha");
+            var confirmarSenhaValue = confirmarSenhaInput.value.trim();
+
+            if (senhaValue !== confirmarSenhaValue) {
+                document.getElementById("mensagem").innerHTML = "As senhas não coincidem.";
+                return;
+            }
+
+            // Criando o usuário com e-mail e senha
+            firebase.auth().createUserWithEmailAndPassword(emailValue, senhaValue)
+            .then(function (userCredential) {
+                // Após a criação do usuário, adiciona os dados do usuário ao Firestore
+                return firebase.firestore().collection("usuarios").doc(userCredential.user.uid).set({
+                    nome: nomeValue,
+                    email: emailValue,
+                    permissao: permissaoValue
+                    // Adicione outros campos se necessário
+                });
+            })
+            .then(function () {
+                document.getElementById("mensagem").innerHTML = "Usuário cadastrado com sucesso!";
+                document.getElementById("cadastroForm").reset();
+            })
+            .catch(function(error) {
+                document.getElementById("mensagem").innerHTML = "Erro ao cadastrar usuário: " + error.message;
+                console.error("Erro ao cadastrar usuário:", error);
+            });
+        }
+
+        document.getElementById('open_btn').addEventListener('click', function () {
+            document.getElementById('sidebar').classList.toggle('open-sidebar');
+        });
+    </script>
+</body>
+
+>>>>>>> 0aeae921f9d5f63e89ef58f608b3080297900d2b
 </html>
