@@ -9,6 +9,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../styles/styleSB.css">
     <link rel="stylesheet" href="../../styles/styleRC.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
     <title>Sidebar</title>
 </head>
 
@@ -85,8 +89,10 @@
 
     <div class="container">
         <div class="detalheBack">
-            <form class="form">
+            <form class="form" method="post" id="cadastroForm">
+
                 <h4>Cadastro De Cliente</h4>
+<<<<<<< HEAD
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome" required>
                 <label for="cep">CEP</label>
@@ -96,10 +102,46 @@
                 <label for="ramo">Ramo de Atividades</label>
                 <input type="text" id="ramo" name="ramo">
                 <label for="email">E-mail</label>
+=======
+
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required minlength="2" maxlength="50" pattern="[A-Za-zÀ-ú\s]+">
+                <div id="nomeError" class="error-message" style="display: none;">Por favor, insira um nome válido (com mais de 2 letras).</div>
+                
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" pattern="\d{5}-?\d{3}" required>
+                <div id="cepError" class="error-message" style="display: none;">Por favor, insira um CEP válido.</div>
+
+
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" pattern="[0-9]{10,11}" required>
+                <div id="telefoneError" class="error-message" style="display: none;">Por favor, insira um número de telefone válido.</div>
+
+
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" required maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" oninput="formatarCPF(this)">
+                <div id="cpfError" class="error-message" style="display: none;">Por favor, insira um CPF válido.</div>
+
+                <label for="ramo">Ramo de Atividades:</label>
+                <input type="text" id="ramo" name="ramo" maxlength="100">
+                <div id="ramoError" class="error-message" style="display: none;">Por favor, insira o ramo de atividades.</div>
+
+
+                <label for="email">E-mail:</label>
+>>>>>>> 0aeae921f9d5f63e89ef58f608b3080297900d2b
                 <input type="email" id="email" name="email" required>
-                <label for="nome">Senha</label>
-                <input type="password" id="Senha" name="Senha" required>
-                <button type="submit">Registrar</button>
+                <div id="emailError" class="error-message" style="display: none;">Por favor, insira um e-mail válido.</div>
+
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" minlength="8" required>
+                <div id="senhaError" class="error-message" style="display: none;">A senha deve ter pelo menos 8 caracteres, incluindo uma letra maiúscula,<br>uma letra minúscula, um número e um caractere especial.</div>
+
+                <div id="mensagem"></div>
+
+                <button type="button" onclick="registrar()">Registrar</button>
+
+                
             </form>
         </div>
         <div class="divImg">
@@ -107,7 +149,12 @@
             <p class="pCadCLient"> Seja Bem-vindo(a) </p>
         </div>
     </div>
+<<<<<<< HEAD
 
+=======
+    
+    
+>>>>>>> 0aeae921f9d5f63e89ef58f608b3080297900d2b
     <script src="../../js/scriptSB.js"></script>
 </body>
 

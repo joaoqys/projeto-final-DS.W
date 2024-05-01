@@ -10,7 +10,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../styles/dashBoard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <link rel="stylesheet" href="../../styles/styleSB.css">
 </head>
 
 <body>
@@ -84,6 +84,56 @@
         </div>
     </nav>
 
+    <main>
+        <h1 class="title-main">DashBoard</h1>
+    </main>
+
+<<<<<<< HEAD
+            <li class="side-item">
+                <a href="../RegisterClient/">
+                    <i class="fa-solid fa-address-book"></i>
+                    <span class="item-description">
+                        Cadastrar Cliente
+                    </span>
+                </a>
+            </li>
+
+            <li class="side-item">
+                <a href="#">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="item-description">
+                        Notificações
+                    </span>
+                </a>
+            </li>
+
+            <li class="side-item">
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    <span class="item-description">
+                        Configurações
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+        <button id="open_btn">
+            <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+
+    <div id="logout">
+        <form class="form" action="/projeto-final-DS.W/src/pages/Login/index.html" method="GET">
+        <button type="submit" id="logout_btn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span class="item-description">
+                Logout
+            </span>
+        </button>
+    </form>
+    </div>
+  </nav>
 
   <main>
     <h1 class="title-main"><strong>DashBoard</strong></h1>
@@ -92,50 +142,43 @@
   <div class="container">  
     <div class="main">
       </br>
+=======
   <div class="containerDash">  
       <div class="dashBoard">
         <canvas id="myChart" ></canvas>
-        <table>
-              <thead>
+        <div class="tableDiv">
+            <table id="clientesPorEstado">
+                <thead>
+                    <tr>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Nº Clientes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
                 <tr>
-                  <th scope="col">Cidade</th>
-                  <th scope="col">Nº Clientes</th>
-                  <th scope="col">Ramo 1</th>
-                  <th scope="col">Ramo 2</th>
+                    <th scope="col">Ramo</th>
+                    <th scope="col">Nº Clientes</th>
                 </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Rio de janeiro</th>
-                  <td id="RJ"></td>
-                  <td id="RJ_Ramo1">49</td>
-                  <td id="RJ_Ramo2">51</td>
-                </tr>
-                <tr>
-                  <th scope="row">São Paulo</th>
-                  <td id="SP"></td>
-                  <td id="SP_Ramo1">150</td>
-                  <td id="SP_Ramo2">50</td>
-                </tr>
-                <tr>
-                  <th scope="row">Aracaju</th>
-                  <td id="AR"></td>
-                  <td id="AR_Ramo1">77</td>
-                  <td id="AR_Ramo2">73</td>
-                </tr>
-                <tr>
-                  <th scope="row">Iguaçu</th>
-                  <td id="IG"></td>
-                  <td id="IG_Ramo1">131</td>
-                  <td id="IG_Ramo2">169</td>
-                </tr>
-              </tbody>
-        </table>
+                </thead>
+                <tbody id="tabelaClientesPorRamo">
+                </tbody>
+            </table>
+        </div>
+            
       </div>
 
   </div>
 
-  <script src="../../js/scriptSB.js"></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
   <script src="../../js/dashBoard.js"></script>
+    
 </body>
 </html>
