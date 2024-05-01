@@ -166,6 +166,10 @@ main {
     gap: 14px;
 }
 
+#logout_link{
+    text-decoration: none;
+  }
+
 .title-main {
     font-size: 22px;
     color: #216ce7;

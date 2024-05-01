@@ -20,6 +20,10 @@ main {
     padding-left: calc(82px + 20px);
 }
 
+#logout_link{
+    text-decoration: none;
+  } 
+
 #sidebar {
     display: flex;
     flex-direction: column;
@@ -201,8 +205,6 @@ main {
     text-align: center;
 }
 
-<<<<<<< HEAD
-
 .container{
     display: flex;
     margin-top: 5%;
@@ -242,9 +244,6 @@ main {
     text-align: center;
   }
 
-  .detalheBack {
-
-  }
 
   .form input {
     width: 250px; 
@@ -292,13 +291,10 @@ main {
     width: auto; /* Define a largura do input automaticamente */
 }
 
-
-  
-=======
 .main{
     margin: 5px;
     width: 70%;
     height: auto;
 }
->>>>>>> 59e4027b1a8037d69d5ddd79b5ebab88ad6eb1a8
+
 

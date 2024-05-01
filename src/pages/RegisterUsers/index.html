@@ -8,6 +8,7 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../styles/styleRU.css">
+    <link rel="stylesheet" href="../../styles/styleSB.css">
     <title>Sidebar</title>
 </head>
 
@@ -15,7 +16,7 @@
     <nav id="sidebar">
         <div id="sidebar_content">
             <div id="user">
-                <img src="../../assets/logo.png" id="user_avatar" alt="Avatar">
+                <img src="../../assets/logoInsightBoardImg.png" id="user_avatar" alt="Avatar">
 
                 <p id="user_infos">
                     <span class="item-description">
@@ -64,43 +65,22 @@
                     </a>
                 </li>
 
-                <li class="side-item">
-                    <a href="#">
-                        <i class="fa-solid fa-bell"></i>
-                        <span class="item-description">
-                            Notificações
-                        </span>
-                    </a>
-                </li>
-
-                <li class="side-item">
-                    <a href="#">
-                        <i class="fa-solid fa-gear"></i>
-                        <span class="item-description">
-                            Configurações
-                        </span>
-                    </a>
-                </li>
-            </ul>
-
             <button id="open_btn">
                 <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
             </button>
         </div>
 
         <div id="logout">
-            <button id="logout_btn">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span class="item-description">
-                    Logout
-                </span>
-            </button>
+            <a href="../Login/index.html" id="logout_link">
+                <button id="logout_btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span class="item-description">
+                        Logout
+                    </span>
+                </button>
+            </a>
         </div>
     </nav>
-
-    <main>
-        <h1 class="title-main">DashBoard</h1>
-    </main>
 
     <div class="container">
         <div class="detalheBack">
@@ -109,22 +89,20 @@
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome" required>
                 <label for="nome">E-mail</label>
-                <input type="text" id="E-mail" name="E-mail" required>
+                <input id="email" type="text" id="E-mail" name="E-mail" required>
                 <label for="nome">Permissão</label>
                 <input type="text" id="Permissão" name="Permissão" required>
-                <label for="nome">Senha</label>
+                <label id="senha" for="nome">Senha</label>
                 <input type="password" id="Senha" name="Senha" required>
-                <label for="nome">Confirmar Senha</label>
-                <input type="password" id="ConfirmarSenha" name="ConfirmarSenha" required>
-                <button type="submit">Registrar</button>
+                <button onclick="Cadastrar()" type="submit">Registrar</button>
             </form>
         </div>
         <div class="divImg">
-            <img src="../../assets/CartoonUsuario.png" width="350px" height="350px">
+            <img class="imgCadUser" src="../../assets/Cartoon  CC2.png" width="350px" height="350px">
+            <p class="pCadCLient"> Seja Bem-vindo(a) </p>
         </div>
     </div>
 
     <script src="../../js/scriptSB.js"></script>
 </body>
-
 </html>
