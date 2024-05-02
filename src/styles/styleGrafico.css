@@ -1,0 +1,10 @@
+.containerG {
+    display: flex;
+    background-color: blueviolet;
+}
+
+#graficoRamo,
+#grafico {
+    width:350px;
+    height:100px;
+}
