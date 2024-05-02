@@ -192,7 +192,8 @@ main {
 @media screen and (max-width: 768px) {
     .containerDash {
         padding: 600px; /* Reduzindo o padding em dispositivos menores */
-        width: 
+        width: 100%;
+        height: auto;
     }
     
     .dashBoard table {
