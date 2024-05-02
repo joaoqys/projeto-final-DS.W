@@ -10,6 +10,13 @@ admin.initializeApp({
 const port = 5500;
 const firestore = admin.firestore();
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
 let clientesData = [];
 
 getClientesData();

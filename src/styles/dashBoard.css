@@ -175,7 +175,7 @@ main {
     color: #216ce7;
 }
 
-.containerDash{
+.containerDash {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -185,6 +185,18 @@ main {
     border-width: 1px;
     padding: 20px;
     border-radius: 5%;
+    width: 90%; /* Definindo a largura como 90% da largura do viewport */
+    max-width: 900px; /* Definindo uma largura máxima para evitar que o conteúdo fique muito largo */
+}
+
+@media screen and (max-width: 768px) {
+    .containerDash {
+        padding: 10px; /* Reduzindo o padding em dispositivos menores */
+    }
+    
+    .dashBoard table {
+        width: 100%; /* Ajustando a largura da tabela para preencher toda a largura do container */
+    }
 }
 
 .dashBoard{
