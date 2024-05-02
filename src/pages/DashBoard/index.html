@@ -97,7 +97,9 @@
                     <th scope="col">ID</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Cidade</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Ramo</th>
+                    <th scope="col">CEP</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -127,6 +129,8 @@
                         <td>${clientes.id}</td>
                         <td>${clientes.nome}</td>
                         <td>${clientes.email}</td>
+                        <td>${clientes.telefone}</td>
+                        <td>${clientes.ramo}</td>
                         <td>${clientes.cep}</td>
                     `;
                     tbody.appendChild(row);
