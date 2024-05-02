@@ -118,7 +118,6 @@
             messagingSenderId: "315303510549",
             appId: "1:315303510549:web:14559a91963607723e841c"
         };
-<<<<<<< HEAD
 
         firebase.initializeApp(firebaseConfig);
 
@@ -145,15 +144,15 @@
                 return;
             }
 
-            // Criando o usuário com e-mail e senha
+            
             firebase.auth().createUserWithEmailAndPassword(emailValue, senhaValue)
             .then(function (userCredential) {
-                // Após a criação do usuário, adiciona os dados do usuário ao Firestore
+                
                 return firebase.firestore().collection("usuarios").doc(userCredential.user.uid).set({
                     nome: nomeValue,
                     email: emailValue,
                     permissao: permissaoValue
-                    // Adicione outros campos se necessário
+
                 });
             })
             .then(function () {
@@ -171,4 +170,7 @@
         });
     </script>
 </body>
+
 </html>
+</html>
+

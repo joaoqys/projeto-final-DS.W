@@ -2,35 +2,59 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-	<title>Login InsightBoard</title>
-	<link rel="shortcut icon" href="../../assets/logo.png" type="image/x-icon" />
-=======
-	<title>Login Painel</title>
-	<link rel="shortcut icon" href="/src/assets/logo.png" type="image/x-icon" />
-<<<<<<< HEAD
->>>>>>> 0aeae921f9d5f63e89ef58f608b3080297900d2b
-=======
->>>>>>> 0aeae921f9d5f63e89ef58f608b3080297900d2b
-	<link rel="stylesheet" href="../../styles/styleLG.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login InsightBoard</title>
+    <link rel="shortcut icon" href="../../assets/logo.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="../../styles/styleLG.css">
 </head>
 
 <body>
-	<div class="background"></div>
-	<div class="card">
-		<img class="logo" src="../../assets/logoInsightBoardWhite.png">
-		<h4>Login InsightBoard</h4>
-        <form class="form" action="/projeto-final-DS.W/src/pages/DashBoard/index.html" method="GET">
+    <div class="background"></div>
+    <div class="card">
+        <img class="logo" src="../../assets/logoInsightBoardWhite.png">
+        <h4>Login InsightBoard</h4>
+        <form class="form" id="loginForm">
             <input id="email" type="email" placeholder="Digite seu email" required>
-            <input id="senha"type="password" placeholder="Digite sua senha" required>
-            <button onclick="Cadastrar()" type="submit">Entrar</button>
+            <input id="senha" type="password" placeholder="Digite sua senha" required>
+            <button type="button" onclick="login()">Entrar</button>
         </form>
-	</div>
+    </div>
 
-	<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"> </script>
-	<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth-compat.js"> </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script>
+        const firebaseConfig = {
+    		apiKey: "AIzaSyBDY6PdMsccR6n-0NaVXewiFionauoqwgs",
+    		authDomain: "autentica-19671.firebaseapp.com",
+    		projectId: "autentica-19671",
+    		storageBucket: "autentica-19671.appspot.com",
+    		messagingSenderId: "315303510549",
+    		appId: "1:315303510549:web:14559a91963607723e841c"
+		};
+
+        firebase.initializeApp(firebaseConfig);
+
+        function login() {
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+
+            firebase.auth().signInWithEmailAndPassword(email, senha)
+                .then((userCredential) => {
+                    
+                    window.location.href = "../DashBoard/index.html";
+
+				
+                })
+                .catch((error) => {
+                    
+                    console.error("Erro ao fazer login:", error);
+                    alert("Erro ao fazer login. Verifique seu email e senha.");
+                });
+        }
+    </script>
 </body>
 
 </html>
