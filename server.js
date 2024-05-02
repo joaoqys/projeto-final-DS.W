@@ -43,30 +43,6 @@ app.get('/clientes', async (req, res) => {
     res.status(500).json({ message: "Erro ao buscar clientes" });
   }
 });
-async function getClientesData() {
-  try {
-    const clientesRef = await firestore.collection('clientes');
-    const snapshot = await clientesRef.get();
-    console.log("Antes da snapshot");
-    console.log("Array");
-    console.log("snapshot:",snapshot);
-    snapshot.forEach(doc => {   
-      const data = doc.data();
-      // Verificar se o documento possui os campos "cep" e "ramo"
-      if (data.cep && data.ramo) {
-        clientesData.push({
-          cep: data.cep,
-          ramo: data.ramo
-        });
-      }
-    });
-    console.log("Clientes2:",clientesData);
-    module.exports = clientesData;
-  } catch (error) {
-    console.error('Erro ao obter dados dos clientes:', error);
-    throw error;
-  }
-}
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
