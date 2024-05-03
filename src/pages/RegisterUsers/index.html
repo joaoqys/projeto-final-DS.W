@@ -9,7 +9,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../styles/styleRU.css">
     <link rel="stylesheet" href="../../styles/styleSB.css">
-    <title>Sidebar</title>
+    <title>Cadastro de Usuarios</title>
 </head>
 
 <body>
@@ -39,13 +39,14 @@
                 </li>
 
                 <li class="side-item">
-                    <a href="#">
+                    <a href="../Usuarios/index.html">
                         <i class="fa-solid fa-user"></i>
                         <span class="item-description">
                             Usuários
                         </span>
                     </a>
                 </li>
+            
 
                 <li class="side-item">
                     <a href="../RegisterUsers/index.html">
@@ -57,7 +58,7 @@
                 </li>
 
                 <li class="side-item">
-                    <a href="../RegisterClient/index.html">
+                    <a href="../RegisterClient/">
                         <i class="fa-solid fa-address-book"></i>
                         <span class="item-description">
                             Cadastrar Cliente
@@ -65,13 +66,21 @@
                     </a>
                 </li>
 
+
+
             <button id="open_btn">
                 <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
             </button>
         </div>
 
+        <script>
+            document.getElementById('open_btn').addEventListener('click', function () {
+        document.getElementById('sidebar').classList.toggle('open-sidebar');
+    });
+        </script>
+
         <div id="logout">
-            <a href="../Login/index.html" id="logout_link">
+            <a href="/projeto-final-DS.W/index.html" id="logout_link">
                 <button id="logout_btn">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <span class="item-description">
@@ -81,6 +90,11 @@
             </a>
         </div>
     </nav>
+
+    <main>
+        <h1 class="title-main">DashBoard</h1>
+    </main>
+    <script src="../../js/scriptSB.js"></script>
 
     <div class="container">
         <div class="detalheBack">
@@ -164,10 +178,6 @@
                 console.error("Erro ao cadastrar usuário:", error);
             });
         }
-
-        document.getElementById('open_btn').addEventListener('click', function () {
-            document.getElementById('sidebar').classList.toggle('open-sidebar');
-        });
     </script>
 </body>
 

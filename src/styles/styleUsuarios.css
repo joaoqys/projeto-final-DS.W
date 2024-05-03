@@ -202,8 +202,12 @@ main {
 }
 
 .dashBoard{
+    display: flex;
     width: 100%;
     height: auto;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
 .dashBoard table{
@@ -216,7 +220,7 @@ main {
 }
 
 .dashBoard thead{
-    background-color: gray;
+    background-color: #1b89ff;
 }
 
 .tableDiv th, td {
@@ -353,6 +357,20 @@ main {
     margin: 5px;
     width: 70%;
     height: auto;
+}
+
+.divText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    color: #000000;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    position: relative; 
 }
 
 

@@ -13,7 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
-    <title>Sidebar</title>
+    <title>Cadastro de Clientes</title>
 </head>
 
 <body>
@@ -31,7 +31,7 @@
                     </span>
                 </p>
             </div>
-r
+
             <ul id="side_items">
                 <li class="side-item active">
                     <a href="../DashBoard/index.html">
@@ -43,13 +43,14 @@ r
                 </li>
 
                 <li class="side-item">
-                    <a href="../DashBoard/index.html">
+                    <a href="../Usuarios/index.html">
                         <i class="fa-solid fa-user"></i>
                         <span class="item-description">
                             Usuários
                         </span>
                     </a>
                 </li>
+                
 
                 <li class="side-item">
                     <a href="../RegisterUsers/index.html">
@@ -75,8 +76,14 @@ r
             </button>
         </div>
 
+        <script>
+            document.getElementById('open_btn').addEventListener('click', function () {
+        document.getElementById('sidebar').classList.toggle('open-sidebar');
+    });
+        </script>
+
         <div id="logout">
-            <a href="../Login/index.html" id="logout_link">
+            <a href="/projeto-final-DS.W/index.html" id="logout_link">
                 <button id="logout_btn">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <span class="item-description">
@@ -86,6 +93,10 @@ r
             </a>
         </div>
     </nav>
+
+    <main>
+        <h1 class="title-main">DashBoard</h1>
+    </main>
 
     <div class="container">
         <div class="detalheBack">
@@ -140,7 +151,8 @@ r
         </div>
     </div>
 
-    <script src="../../js/scriptSB.js"></script>
+    <script src="/projeto-final-DS.W/src/js/scriptSB.js"></script>
+
 </body>
 
 </html>

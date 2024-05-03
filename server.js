@@ -19,8 +19,6 @@ app.use((req, res, next) => {
 
 let clientesData = [];
 
-getClientesData();
-
 app.use(express.json())
 app.get('/clientes', async (req, res) => {
   try {
